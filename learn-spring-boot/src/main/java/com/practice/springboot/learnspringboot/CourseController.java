@@ -12,8 +12,8 @@ public class CourseController {
 	@RequestMapping("/courses")
 	public List<Course> retrieveAllCourse() {
 		return Arrays.asList(
-				new Course(1, "Learn AWS", "Udemy"),
-				new Course(2, "Learn DevOps", "Coursera")
+				new Course(1, "Learnt AWS", "Udemy"),
+				new Course(2, "Learning DevOps", "Coursera")
 				);
 	}
 }
