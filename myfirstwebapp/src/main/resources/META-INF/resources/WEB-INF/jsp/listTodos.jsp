@@ -5,7 +5,7 @@
         </title>
     </head>
     <body>
-        <div>Welcome to App</div>
+        <div>Welcome ${name}</div>
         <div>Your todos are ${todos}</div>
     </body>
 </html>
