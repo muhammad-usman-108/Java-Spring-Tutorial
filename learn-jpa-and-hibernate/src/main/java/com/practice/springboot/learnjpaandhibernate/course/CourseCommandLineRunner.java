@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.practice.springboot.learnjpaandhibernate.course.jdbc.CourseJdbcRepository;
 import com.practice.springboot.learnjpaandhibernate.course.jpa.CourseJpaRepository;
+import com.practice.springboot.learnjpaandhibernate.course.springdatajpa.CourseSpringDataJpaRepository;
 
 @Component
 public class CourseCommandLineRunner implements CommandLineRunner{
@@ -13,16 +14,19 @@ public class CourseCommandLineRunner implements CommandLineRunner{
 	//@Autowired
 	//private CourseJdbcRepository repository;
 	
+	//@Autowired
+	//private CourseJpaRepository repository;
+	
 	@Autowired
-	private CourseJpaRepository repository;
+	private CourseSpringDataJpaRepository repository;
 	
 	@Override
 	public void run(String... args) throws Exception {
-		repository.insert(new Course(1, "Learn AWS", "usmanmuh"));
-		repository.insert(new Course(2, "Learn Devops", "usmanmuh"));
-		repository.insert(new Course(3, "Learn Vue.js", "usmanmuh"));
-		repository.delete(1);
-		System.out.println(repository.find(2));
+		repository.save(new Course(1, "Learn AWS", "usmanmuh"));
+		repository.save(new Course(2, "Learn Devops", "usmanmuh"));
+		repository.save(new Course(3, "Learn Vue.js", "usmanmuh"));
+		repository.deleteById(1l);
+		System.out.println(repository.findById(2l));
 	}
 
 }
