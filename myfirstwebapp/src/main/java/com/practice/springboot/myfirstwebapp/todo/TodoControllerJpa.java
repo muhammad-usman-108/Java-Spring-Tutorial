@@ -10,20 +10,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-//@Controller
+@Controller
 @SessionAttributes("name")
-public class TodoController {
+public class TodoControllerJpa {
 	
 	private TodoService todoService;
+	private TodoRepository todoRepository;
 	
-	public TodoController(TodoService todoService) {
+	public TodoControllerJpa(TodoService todoService, TodoRepository todoRepository) {
 		super();
 		this.todoService = todoService;
+		this.todoRepository  = todoRepository;
 	}
 
 	@RequestMapping("list-todos")
 	public String listAllTodos(ModelMap model) {
-		List<Todo> todos = todoService.findByUsername("usmanmuh");
+		List<Todo> todos = todoRepository.findByUsername("usmanmuh");
 		model.addAttribute("todos", todos);
 		return "listTodos";
 	}

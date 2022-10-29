@@ -2,14 +2,24 @@ package com.practice.springboot.myfirstwebapp.todo;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Todo {
 	
+	@Id
+	@GeneratedValue
 	private int id;
 	private String username;
 	private String description;
 	private LocalDate targetDate;
 	private boolean done;
 	
+	public Todo() {
+		
+	}
 	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
 		this.id = id;
 		this.username = username;
